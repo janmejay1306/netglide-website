@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – NetGlide</title>
+  <meta name="description" content="NetGlide's Privacy Policy outlines how we collect, use, and protect your data. We are committed to user privacy and transparency.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Chakra+Petch:wght@600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    :root {
+      --c-bg: #05030d;
+      --c-indigo: #1a0a3d;
+      --c-neon: #7c5cfc;
+      --c-pink: #e040fb;
+      --c-cyan: #22d3ee;
+      --c-text: #e8e0ff;
+      --c-muted: #8070b0;
+      --glass-bg: rgba(255,255,255,0.035);
+      --glass-border: rgba(255,255,255,0.09);
+      --radius: 20px;
+      --ff-head: 'Syne', sans-serif;
+      --ff-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 6px }
+    ::-webkit-scrollbar-track { background: rgba(5,3,13,0.95) }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#7c5cfc,#22d3ee,#e040fb); border-radius:999px; box-shadow:0 0 8px rgba(124,92,252,0.6) }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg,#a78bfa,#22d3ee); box-shadow:0 0 14px rgba(124,92,252,0.9) }
+    * { scrollbar-width:thin; scrollbar-color:#7c5cfc #05030d }
+
+    body { font-family:var(--ff-body); background:var(--c-bg); color:var(--c-text); overflow-x:hidden; width: 100%; position: relative; word-wrap: break-word; }
+    a, button { cursor:pointer }
+
+    /* Background */
+    .bg-fixed { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden }
+    .bg-orb { position:absolute; border-radius:50%; filter:blur(80px); animation:orbDrift 20s ease-in-out infinite }
+    .orb1 { width:700px; height:700px; left:-200px; top:-200px; background:radial-gradient(circle,rgba(45,16,96,0.7),transparent 70%); animation-delay:0s }
+    .orb2 { width:500px; height:500px; right:-100px; top:30%; background:radial-gradient(circle,rgba(11,26,85,0.6),transparent 70%); animation-delay:-7s }
+    .orb3 { width:600px; height:600px; left:30%; bottom:-200px; background:radial-gradient(circle,rgba(124,92,252,0.08),transparent 70%); animation-delay:-14s }
+    #particles-canvas { position:fixed; inset:0; pointer-events:none; z-index:1 }
+
+    /* Scroll progress */
+    .scroll-progress-bar { position:fixed; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#7c5cfc,#22d3ee,#e040fb); transform:scaleX(0); transform-origin:left; z-index:9999; transition:transform 0.1s }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; height:65px; padding:0 2.5rem; display:flex; align-items:center; justify-content:space-between; background:rgba(5,3,13,0.1); backdrop-filter:blur(24px) saturate(1.8); border-bottom:1px solid rgba(255,255,255,0.05); transition:all 0.4s ease }
+    nav.scrolled { background:rgba(5,3,13,0.35); border-bottom-color:rgba(124,92,252,0.25); box-shadow:0 10px 30px rgba(0,0,0,0.3) }
+    .nav-logo { width:140px; height:auto; object-fit:contain; display:block; transform:scale(1.8); transform-origin:left center; margin-top:9px }
+    .nav-links { display:flex; gap:2.5rem; list-style:none; position:absolute; left:calc(50% + 15px); top:50%; transform:translate(-50%,-50%) }
+    .nav-links a { color:var(--c-muted); text-decoration:none; font-size:1.02rem; font-weight:500; letter-spacing:0.03em; transition:color 0.2s; position:relative }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--c-neon); transform:scaleX(0); transition:transform 0.25s }
+    .nav-links a:hover { color:var(--c-text) }
+    .nav-links a:hover::after { transform:scaleX(1) }
+    .nav-cta { background:linear-gradient(90deg,#7c5cfc 0%,#0284c7 50%,#5b3fe8 100%); background-size:200% 200%; color:#fff; border:none; padding:0.65rem 1.6rem; border-radius:999px; font-family:var(--ff-head); font-size:1rem; font-weight:700; cursor:pointer; box-shadow:0 0 24px rgba(124,92,252,0.45); transition:all 0.3s cubic-bezier(.22,.68,0,1.2); text-decoration:none; display:inline-block }
+    .nav-cta:hover { transform:scale(1.07); box-shadow:0 0 35px rgba(124,92,252,0.5) }
+
+    /* Mobile menu */
+    .mobile-menu-btn { display:none; width:44px; height:44px; border-radius:12px; background:rgba(124,92,252,0.1); border:1px solid rgba(124,92,252,0.25); align-items:center; justify-content:center; cursor:pointer; flex-direction:column; gap:5px; padding:0; transition:background 0.3s,border-color 0.3s; flex-shrink:0; z-index:300; position:relative }
+    .mobile-menu-btn:hover { background:rgba(124,92,252,0.2); border-color:rgba(124,92,252,0.5) }
+    .menu-bar { display:block; width:20px; height:2px; background:#a78bfa; border-radius:4px; transition:transform 0.4s cubic-bezier(.22,.68,0,1.2),opacity 0.3s ease,width 0.3s ease; transform-origin:center }
+    .mobile-menu-btn.open .menu-bar:nth-child(1) { transform:translateY(7px) rotate(45deg) }
+    .mobile-menu-btn.open .menu-bar:nth-child(2) { opacity:0; transform:translateX(8px) }
+    .mobile-menu-btn.open .menu-bar:nth-child(3) { transform:translateY(-7px) rotate(-45deg) }
+    .mobile-nav-overlay { display:none; position:fixed; inset:0; z-index:190; pointer-events:none; overflow:hidden; }
+    .mobile-nav-backdrop { position:absolute; inset:0; background:rgba(5,3,13,0.7); backdrop-filter:blur(8px); opacity:0; transition:opacity 0.4s ease }
+    .mobile-nav-panel { position:absolute; top:0; right:0; width:min(320px,calc(100vw - 1rem)); max-width:100vw; height:100%; background:linear-gradient(160deg,#0e0820 0%,#07050f 60%); border-left:1px solid rgba(124,92,252,0.2); box-shadow:-20px 0 60px rgba(0,0,0,0.6),-2px 0 30px rgba(124,92,252,0.08); transform:translateX(100%); transition:transform 0.5s cubic-bezier(.22,.68,0,1.2); display:flex; flex-direction:column; padding:90px 1.2rem 2.5rem; overflow-y:auto; overflow-x:hidden }
+    .mobile-nav-overlay.open { pointer-events:all }
+    .mobile-nav-overlay.open .mobile-nav-backdrop { opacity:1 }
+    .mobile-nav-overlay.open .mobile-nav-panel { transform:translateX(0) }
+    .mobile-nav-links { list-style:none; display:flex; flex-direction:column; gap:0.3rem; margin-bottom:2rem }
+    .mobile-nav-links li { opacity:0; transform:translateX(30px); transition:opacity 0.4s ease,transform 0.4s cubic-bezier(.22,.68,0,1.2) }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(1) { opacity:1; transform:translateX(0); transition-delay:0.15s }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(2) { opacity:1; transform:translateX(0); transition-delay:0.22s }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(3) { opacity:1; transform:translateX(0); transition-delay:0.29s }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(4) { opacity:1; transform:translateX(0); transition-delay:0.36s }
+    .mobile-nav-links a { display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem; border-radius:14px; text-decoration:none; color:var(--c-muted); font-size:1.1rem; font-weight:600; font-family:var(--ff-head); letter-spacing:0.02em; transition:background 0.25s,color 0.25s,transform 0.25s; border:1px solid transparent }
+    .mobile-nav-links a:hover { background:rgba(124,92,252,0.1); color:var(--c-text); border-color:rgba(124,92,252,0.2); transform:translateX(4px) }
+    .mobile-nav-link-icon { font-size:1.2rem; flex-shrink:0 }
+    .mobile-nav-divider { height:1px; background:rgba(255,255,255,0.06); margin-bottom:1.8rem }
+    .mobile-nav-cta { margin-bottom:1.5rem }
+    .mobile-nav-cta .btn-primary { width:100%; justify-content:center; font-size:1rem; padding:1rem 1.8rem }
+    .mobile-nav-footer { margin-top:auto; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.06) }
+    .mobile-nav-footer p { font-size:0.78rem; color:rgba(144,128,192,0.45); text-align:center }
+
+    /* MAIN LAYOUT */
+    .page-wrapper { max-width:1100px; margin:0 auto; padding:0 2.5rem; position:relative; z-index:2 }
+    .policy-layout { display:grid; grid-template-columns:260px 1fr; gap:4rem; align-items:start; padding-top:40px; padding-bottom:80px }
+
+    /* PAGE HERO BANNER */
+    .page-hero { position:relative; z-index:2; padding:140px 0 60px; text-align:center }
+    .page-hero-inner { max-width:700px; margin:0 auto; padding:0 2rem }
+    .page-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(124,92,252,0.1); border:1px solid rgba(124,92,252,0.28); padding:0.45rem 1.1rem; border-radius:999px; font-size:0.82rem; font-weight:500; color:#a78bfa; margin-bottom:1.4rem }
+    .badge-dot { width:6px; height:6px; background:#a78bfa; border-radius:50%; animation:pulse 2s infinite }
+    .page-hero h1 { font-family:var(--ff-head); font-size:clamp(2.4rem,4.5vw,3.6rem); font-weight:700; letter-spacing:-0.02em; line-height:1.1; margin-bottom:1rem }
+    .page-hero .hero-sub { color:var(--c-muted); font-size:1.05rem; line-height:1.7; max-width:520px; margin:0 auto 1.6rem }
+    .effective-date { display:inline-flex; flex-wrap:wrap; justify-content:center; text-align:center; max-width:100%; align-items:center; gap:0.5rem; font-size:0.82rem; color:rgba(144,128,192,0.6); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:0.4rem 1rem; border-radius:999px }
+
+    /* Gradient text */
+    .gradient-text { background:linear-gradient(135deg,#a78bfa 0%,#22d3ee 50%,#e040fb 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-size:200% 200%; animation:gradientShift 5s ease infinite }
+
+    /* TABLE OF CONTENTS (Sidebar) */
+    .toc-sidebar { position:sticky; top:90px }
+    .toc-card { background:var(--glass-bg); border:1px solid var(--glass-border); backdrop-filter:blur(20px) saturate(1.5); border-radius:var(--radius); padding:1.8rem; }
+    .toc-title { font-family:var(--ff-head); font-size:0.75rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#7c5cfc; margin-bottom:1.2rem; display:flex; align-items:center; gap:0.5rem }
+    .toc-list { list-style:none; display:flex; flex-direction:column; gap:0.2rem }
+    .toc-list a { display:flex; align-items:center; gap:0.7rem; padding:0.55rem 0.8rem; border-radius:10px; text-decoration:none; color:var(--c-muted); font-size:0.875rem; font-weight:500; transition:all 0.25s; border:1px solid transparent }
+    .toc-list a:hover { background:rgba(124,92,252,0.1); color:var(--c-text); border-color:rgba(124,92,252,0.2); padding-left:1.1rem }
+    .toc-num { font-size:0.72rem; color:#7c5cfc; font-weight:700; min-width:18px }
+    .toc-divider { height:1px; background:rgba(255,255,255,0.06); margin:1rem 0 }
+    .toc-quick { font-size:0.78rem; color:rgba(144,128,192,0.5); text-align:center; padding-top:0.5rem }
+
+    /* POLICY CONTENT */
+    .policy-content { min-width:0 }
+    .policy-section { margin-bottom:4rem; scroll-margin-top:90px }
+    .section-anchor { display:block; position:relative }
+
+    .policy-section-header { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.06) }
+    .section-num { width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,rgba(124,92,252,0.18),rgba(34,211,238,0.08)); border:1px solid rgba(124,92,252,0.35); display:flex; align-items:center; justify-content:center; font-family:var(--ff-body); font-size:1rem; font-weight:700; color:#a78bfa; flex-shrink:0 }
+    .policy-section h2 { font-family:var(--ff-head); font-size:1.3rem; font-weight:700; letter-spacing:-0.01em; color:var(--c-text) }
+
+    .policy-p { color:var(--c-muted); line-height:1.8; font-size:0.975rem; margin-bottom:1rem }
+    .policy-p:last-child { margin-bottom:0 }
+
+    .policy-ul { list-style:none; margin:0.8rem 0 1rem; display:flex; flex-direction:column; gap:0.5rem }
+    .policy-ul li { display:flex; align-items:flex-start; gap:0.75rem; color:var(--c-muted); font-size:0.95rem; line-height:1.7 }
+    .policy-ul li::before { content:''; width:6px; height:6px; border-radius:50%; background:linear-gradient(135deg,#7c5cfc,#22d3ee); flex-shrink:0; margin-top:0.6rem }
+
+    .highlight-box { background:rgba(124,92,252,0.06); border:1px solid rgba(124,92,252,0.2); border-radius:14px; padding:1.4rem 1.6rem; margin:1.2rem 0 }
+    .highlight-box .hb-icon { font-size:1.4rem; margin-bottom:0.6rem; display:block }
+    .highlight-box p { color:rgba(180,170,220,0.85); font-size:0.92rem; line-height:1.7; margin:0 }
+    .highlight-box strong { color:#c4b5fd }
+
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.2rem 0 }
+    .info-card { background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:1.2rem 1.4rem; transition:all 0.3s }
+    .info-card:hover { background:rgba(124,92,252,0.08); border-color:rgba(124,92,252,0.25) }
+    .info-card-icon { font-size:1.3rem; margin-bottom:0.5rem }
+    .info-card-title { font-size:0.85rem; font-weight:700; color:var(--c-text); margin-bottom:0.3rem }
+    .info-card-desc { font-size:0.82rem; color:var(--c-muted); line-height:1.5 }
+
+    .contact-box { background:rgba(34,211,238,0.05); border:1px solid rgba(34,211,238,0.15); border-radius:16px; padding:1.6rem; margin-top:1.2rem; text-align:center }
+    .contact-box .cb-icon { font-size:1.8rem; display:block; margin-bottom:0.7rem }
+    .contact-box h3 { font-family:var(--ff-head); font-size:1.05rem; margin-bottom:0.5rem }
+    .contact-box p { color:var(--c-muted); font-size:0.9rem; margin-bottom:1rem }
+    .contact-box a { color:#22d3ee; text-decoration:none; font-weight:600; transition:color 0.2s; word-break: break-all; }
+    .contact-box a:hover { color:#a78bfa }
+
+    /* FOOTER STYLES */
+    .page-footer { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 3rem 2.5rem 2rem; position: relative; z-index: 2; margin-top: 4rem; text-align: left; }
+    .footer-inner { max-width: 1100px; margin: 0 auto }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem }
+    .footer-brand .footer-logo-wrap { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; justify-content: flex-start; }
+    .footer-logo { width: 110px; height: auto; object-fit: contain; display: block; transform: scale(2.2); transform-origin: left center; margin-bottom: 0.4rem; margin-left: 0; }
+    .footer-tagline { color: var(--c-muted); font-size: 0.88rem; line-height: 1.6; max-width: 240px; margin-bottom: 1.2rem }
+    .footer-social { display: flex; gap: 0.7rem }
+    .social-btn { width: 36px; height: 36px; border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; font-size: 1rem; text-decoration: none !important; transition: all 0.25s; color: var(--c-muted) !important }
+    .social-btn:hover { background: rgba(124, 92, 252, 0.15); border-color: rgba(124, 92, 252, 0.35); color: var(--c-text) !important; transform: translateY(-2px) }
+    .footer-col-title { font-family: var(--ff-head); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(167, 139, 250, 0.7); margin-bottom: 1rem }
+    .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; padding: 0; margin: 0; }
+    .footer-col-links a { color: var(--c-muted) !important; text-decoration: none !important; font-size: 0.875rem; transition: color 0.2s }
+    .footer-col-links a:hover { color: var(--c-text) !important }
+    .footer-bottom { padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem }
+    .footer-copy { color: rgba(144, 128, 192, 0.45); font-size: 0.82rem }
+    .footer-legal { display: flex; gap: 1.5rem }
+    .footer-legal a { color: rgba(144, 128, 192, 0.5) !important; text-decoration: none !important; font-size: 0.8rem; transition: color 0.2s }
+    .footer-legal a:hover { color: var(--c-muted) !important }
+
+    /* Divider */
+    .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(124,92,252,0.18),rgba(34,211,238,0.1),transparent); margin:0; position:relative; z-index:2 }
+
+    /* Keyframes */
+    @keyframes orbDrift { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,20px) scale(1.05)} 66%{transform:translate(-20px,10px) scale(0.97)} }
+    @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+    /* Mobile responsive */
+    @media (max-width:960px) {
+      .policy-layout { grid-template-columns:1fr; gap:2.5rem; padding-top:20px }
+      .toc-sidebar { position:static; margin-bottom:1rem }
+      .toc-card { padding:1.4rem }
+      .toc-list { display:grid; grid-template-columns:1fr 1fr; gap:0.4rem }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:2rem }
+      .nav-links { display:none }
+      .nav-cta { display:none }
+      .mobile-menu-btn { display:flex }
+      .mobile-nav-overlay { display:block }
+    }
+    @media (max-width:600px) {
+      nav { padding: 0 1.2rem; }
+      .page-footer { padding: 3rem 1.2rem 2rem; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand .footer-logo-wrap { justify-content: center; }
+      .footer-logo { transform-origin: center center; margin: 0 auto; }
+      .footer-tagline { margin: 0 auto 1.5rem; }
+      .footer-social { justify-content: center; margin-bottom: 1rem; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 0.8rem; }
+      .page-wrapper { padding:0 1.2rem }
+      .page-hero { padding: 110px 0 40px }
+      .page-hero h1 { font-size: clamp(2rem, 8vw, 2.4rem) }
+      .policy-layout { gap: 2rem; padding-bottom: 50px }
+      .info-grid { grid-template-columns:1fr }
+      .footer-grid { grid-template-columns:1fr }
+      .footer-bottom { flex-direction:column; text-align:center }
+      
+      /* Mobile TOC - Scrollable List */
+      .toc-list { 
+        display:flex; 
+        flex-direction:column; 
+        max-height: 280px; 
+        overflow-y: auto; 
+        padding-right: 0.8rem; 
+        gap: 0.3rem;
+      }
+      .toc-list::-webkit-scrollbar { width: 4px }
+      .toc-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px }
+      .toc-list::-webkit-scrollbar-thumb { background: rgba(124,92,252,0.4); border-radius: 4px }
+    }
+    @media (min-width:961px) {
+      .mobile-menu-btn { display:none !important }
+      .mobile-nav-overlay { display:none !important }
+    }
+  </style>
+</head>
+<body>
+  <style>
+  /* ============================================================
+     HEADER.HTML — Shared Mobile Nav Styles
+     Included on every page, so all pages get identical mobile UX
+  ============================================================ */
+
+  /* Mobile hamburger button */
+  .mobile-menu-btn {
+    display: none;
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(124,92,252,0.1);
+    border: 1px solid rgba(124,92,252,0.25);
+    align-items: center; justify-content: center;
+    cursor: pointer; flex-direction: column; gap: 5px;
+    padding: 0;
+    transition: background 0.3s, border-color 0.3s;
+    flex-shrink: 0; z-index: 300; position: relative;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-menu-btn:hover { background:rgba(124,92,252,0.2); border-color:rgba(124,92,252,0.5) }
+  .menu-bar {
+    display: block; width: 20px; height: 2px;
+    background: #a78bfa; border-radius: 4px;
+    transition: transform 0.4s cubic-bezier(.22,.68,0,1.2), opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+  }
+  .mobile-menu-btn.open .menu-bar:nth-child(1) { transform: translateY(7px) rotate(45deg) }
+  .mobile-menu-btn.open .menu-bar:nth-child(2) { opacity: 0; transform: translateX(8px) }
+  .mobile-menu-btn.open .menu-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg) }
+
+  /* Overlay + slide-in panel */
+  .mobile-nav-overlay {
+    display: none; position: fixed; inset: 0; z-index: 190;
+    pointer-events: none; overflow: hidden;
+  }
+  .mobile-nav-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(5,3,13,0.7); backdrop-filter: blur(8px);
+    opacity: 0; transition: opacity 0.4s ease;
+  }
+  .mobile-nav-panel {
+    position: absolute; top: 0; right: 0;
+    width: min(320px, calc(100vw - 1rem)); max-width: 100vw; height: 100%;
+    background: linear-gradient(160deg, #0e0820 0%, #07050f 60%);
+    border-left: 1px solid rgba(124,92,252,0.2);
+    box-shadow: -20px 0 60px rgba(0,0,0,0.6), -2px 0 30px rgba(124,92,252,0.08);
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(.22,.68,0,1.2);
+    display: flex; flex-direction: column;
+    padding: 90px 1.2rem 2.5rem;
+    overflow-y: auto; overflow-x: hidden;
+  }
+  .mobile-nav-overlay.open { pointer-events: all }
+  .mobile-nav-overlay.open .mobile-nav-backdrop { opacity: 1 }
+  .mobile-nav-overlay.open .mobile-nav-panel { transform: translateX(0) }
+
+  /* Nav link list */
+  .mobile-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 2rem }
+  .mobile-nav-links li { opacity: 0; transform: translateX(30px); transition: opacity 0.4s ease, transform 0.4s cubic-bezier(.22,.68,0,1.2) }
+  .mobile-nav-overlay.open .mobile-nav-links li:nth-child(1) { opacity:1; transform:translateX(0); transition-delay:0.15s }
+  .mobile-nav-overlay.open .mobile-nav-links li:nth-child(2) { opacity:1; transform:translateX(0); transition-delay:0.22s }
+  .mobile-nav-overlay.open .mobile-nav-links li:nth-child(3) { opacity:1; transform:translateX(0); transition-delay:0.29s }
+  .mobile-nav-overlay.open .mobile-nav-links li:nth-child(4) { opacity:1; transform:translateX(0); transition-delay:0.36s }
+  .mobile-nav-links a {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem; border-radius: 14px;
+    text-decoration: none; color: #8070b0;
+    font-size: 1.1rem; font-weight: 600;
+    font-family: 'Syne', sans-serif; letter-spacing: 0.02em;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+    border: 1px solid transparent;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-nav-links a:hover {
+    background: rgba(124,92,252,0.1); color: #e8e0ff;
+    border-color: rgba(124,92,252,0.2); transform: translateX(4px);
+  }
+  .mobile-nav-link-icon { font-size: 1.2rem; flex-shrink: 0 }
+  .mobile-nav-divider { height: 1px; background: rgba(255,255,255,0.06); margin-bottom: 1.8rem }
+  .mobile-nav-cta { margin-bottom: 1.5rem }
+  .mobile-nav-footer { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06) }
+  .mobile-nav-footer p { font-size: 0.78rem; color: rgba(144,128,192,0.45); text-align: center }
+
+  /* ---- "Download Free" gradient button inside the mobile panel ---- */
+  .mobile-nav-cta .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    background: linear-gradient(90deg, #7c5cfc 0%, #0284c7 50%, #5b3fe8 100%);
+    background-size: 200% 200%;
+    color: #fff;
+    border: none;
+    padding: 1rem 1.8rem;
+    border-radius: 999px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 35px rgba(124,92,252,0.4), 0 4px 20px rgba(0,0,0,0.5);
+    transition: all 0.35s cubic-bezier(.22,.68,0,1.2);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-nav-cta .btn-primary:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 40px rgba(124,92,252,0.5), 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .mobile-nav-cta .btn-primary:focus { outline: none; box-shadow: 0 0 0 3px rgba(124,92,252,0.4) }
+
+  /* ---- Responsive nav sizing (identical to index.php) ---- */
+
+  /* Tablet: ≤960px */
+  @media (max-width: 960px) {
+    .nav-links          { display: none !important }
+    .nav-cta            { display: none !important }
+    .mobile-menu-btn    { display: flex }
+    .mobile-nav-overlay { display: block }
+    nav        { padding: 0 1.4rem; height: 60px; }
+    .nav-logo  { transform: scale(1.5); margin-top: 6px; }
+  }
+
+  /* Mobile: ≤600px */
+  @media (max-width: 600px) {
+    nav        { padding: 0 1rem; height: 58px; }
+    .nav-logo  { transform: scale(1.3); margin-top: 6px; }
+    .mobile-nav-overlay,
+    .mobile-nav-panel { overflow-x: hidden; }
+  }
+
+  /* Small mobile: ≤480px */
+  @media (max-width: 480px) {
+    nav        { padding: 0 0.8rem; }
+    .nav-logo  { transform: scale(1.25); margin-left: -0.45rem; }
+  }
+
+  /* Extra small: ≤400px */
+  @media (max-width: 400px) {
+    nav        { padding: 0 0.5rem; }
+    .nav-logo  { transform: scale(1.45); margin-left: -1.25rem; }
+    .mobile-menu-btn         { width: 40px; height: 40px; }
+    .mobile-menu-btn .menu-bar { width: 18px; }
+  }
+
+  /* Desktop: ≥961px — ensure nav links & CTA are shown */
+  @media (min-width: 961px) {
+    .mobile-menu-btn    { display: none         !important }
+    .mobile-nav-overlay { display: none         !important }
+    .nav-links          { display: flex          }
+    .nav-cta            { display: inline-block  }
+    nav       { padding: 0 2.5rem; height: 65px; }
+    .nav-logo { transform: scale(1.8); margin-top: 9px; margin-left: 0; }
+  }
+</style>
+
+  <div class="scroll-progress-bar" id="scroll-bar"></div>
+  <div class="bg-fixed">
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+    <div class="bg-orb orb3"></div>
+  </div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="index.html#features" class="mobile-nav-link">
+            <span class="mobile-nav-link-icon">✦</span>
+            Features
+          </a>
+        </li>
+        <li>
+          <a href="index.html#showcase" class="mobile-nav-link">
+            <span class="mobile-nav-link-icon">🖥️</span>
+            Showcase
+          </a>
+        </li>
+        <li>
+          <a href="index.html#install" class="mobile-nav-link">
+            <span class="mobile-nav-link-icon">⬇️</span>
+            Download
+          </a>
+        </li>
+        <li>
+          <a href="index.html#contact" class="mobile-nav-link">
+            <span class="mobile-nav-link-icon">💬</span>
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-cta">
+        <a href="index.html#install" class="btn-primary">Download Free</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <p>Fast. Focused. Free forever.</p>
+      </div>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <a href="index.html#hero" style="display:contents"><img src="image/logo.webp" alt="NetGlide Logo" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#showcase">Showcase</a></li>
+      <li><a href="index.html#install">Download</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#install" class="nav-cta">Download Free</a>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+  </nav>
+
+
+  <!-- Page Hero -->
+  <div class="page-hero" style="position:relative;z-index:2">
+    <div class="page-hero-inner">
+      <div class="page-badge"><span class="badge-dot"></span>Legal &amp; Transparency</div>
+      <h1><span class="gradient-text">Privacy Policy</span></h1>
+      <p class="hero-sub">We believe privacy is a right, not a feature. Here's everything you need to know about how NetGlide handles (or more accurately, doesn't handle) your data.</p>
+      <div class="effective-date">📅 Effective Date: March 31, 2026</div>
+    </div>
+  </div>
+
+  <!-- Policy Layout -->
+  <div class="page-wrapper">
+    <div class="policy-layout">
+
+      <!-- TOC Sidebar -->
+      <aside class="toc-sidebar">
+        <div class="toc-card">
+          <div class="toc-title"><span>📋</span> On This Page</div>
+          <ul class="toc-list">
+            <li><a href="#intro"><span class="toc-num">01</span> Introduction</a></li>
+            <li><a href="#data-collected"><span class="toc-num">02</span> Data We Collect</a></li>
+            <li><a href="#no-collect"><span class="toc-num">03</span> What We Don't Collect</a></li>
+            <li><a href="#local-storage"><span class="toc-num">04</span> Local Storage</a></li>
+            <li><a href="#auto-update"><span class="toc-num">05</span> Auto-Update Feature</a></li>
+            <li><a href="#children"><span class="toc-num">06</span> Children's Privacy</a></li>
+            <li><a href="#third-party"><span class="toc-num">07</span> Third-Party Integration</a></li>
+            <li><a href="#security"><span class="toc-num">08</span> Security</a></li>
+            <li><a href="#cookies"><span class="toc-num">09</span> Cookies &amp; Tracking</a></li>
+            <li><a href="#your-rights"><span class="toc-num">10</span> Your Rights</a></li>
+            <li><a href="#changes"><span class="toc-num">11</span> Policy Changes</a></li>
+            <li><a href="#contact"><span class="toc-num">12</span> Contact Us</a></li>
+          </ul>
+          <div class="toc-divider"></div>
+          <div class="toc-quick">🔒 Your data stays on your device</div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="policy-content">
+
+        <!-- Section 1: Introduction -->
+        <div id="intro" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">01</div>
+            <h2>Introduction</h2>
+          </div>
+          <p class="policy-p">Welcome to NetGlide. NetGlide is a privacy-focused desktop browser developed by a team of student developers. We are deeply committed to protecting your digital privacy and being fully transparent about how our software operates.</p>
+          <p class="policy-p">This Privacy Policy explains how we handle information when you use NetGlide — including the browser application and our website at netglide.com. By using NetGlide, you agree to the practices described in this policy. Please read it carefully.</p>
+          <div class="highlight-box">
+            <span class="hb-icon">🛡️</span>
+            <p><strong>The short version:</strong> NetGlide is designed from the ground up to collect as little data as possible. Your browsing history, bookmarks, passwords, and preferences stay on your device. We are not in the business of selling your data — ever.</p>
+          </div>
+        </div>
+
+        <!-- Section 2: Data We Collect -->
+        <div id="data-collected" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">02</div>
+            <h2>Data We Collect</h2>
+          </div>
+          <p class="policy-p">NetGlide is designed with a minimal footprint. In certain limited scenarios, some data may be involved:</p>
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-icon">📬</div>
+              <div class="info-card-title">Contact Form Data</div>
+              <div class="info-card-desc">When you submit our contact form on this website, we collect your name, email address, and message to respond to your inquiry.</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon">🔄</div>
+              <div class="info-card-title">Update Check Requests</div>
+              <div class="info-card-desc">During our auto-update check, the only data sent is your current NetGlide version number to GitHub. No personal data is included.</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon">🌐</div>
+              <div class="info-card-title">Website Analytics (Limited)</div>
+              <div class="info-card-desc">Our website may use anonymized, aggregated analytics (e.g., page views) to improve user experience. No personally identifiable information is collected.</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon">📦</div>
+              <div class="info-card-title">Download Count</div>
+              <div class="info-card-desc">We may track total aggregate download counts to understand how many people use NetGlide. Individual download events are not tied to personal identities.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: What We Don't Collect -->
+        <div id="no-collect" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">03</div>
+            <h2>What We Don't Collect</h2>
+          </div>
+          <p class="policy-p">We want to be crystal clear about what NetGlide does <em>not</em> collect from your browser activity:</p>
+          <ul class="policy-ul">
+            <li>Browsing history, search queries, or visited URLs</li>
+            <li>Passwords, form fill data, or autofill entries</li>
+            <li>Bookmarks, tab groups, or workspace configurations</li>
+            <li>IP address, geolocation, or physical location data</li>
+            <li>Hardware fingerprinting or device identifiers</li>
+            <li>Installed extensions or plugin data</li>
+            <li>Crash reports or telemetry data (unless you explicitly opt in)</li>
+            <li>Any form of behavioral or usage analytics from within the browser</li>
+          </ul>
+          <div class="highlight-box">
+            <span class="hb-icon">📵</span>
+            <p><strong>No account required.</strong> NetGlide does not require you to create an account, sign in, or provide any personal information to use the browser. All features are available without registration.</p>
+          </div>
+        </div>
+
+        <!-- Section 4: Local Storage -->
+        <div id="local-storage" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">04</div>
+            <h2>Local Storage &amp; Your Data</h2>
+          </div>
+          <p class="policy-p">All browsing data generated by NetGlide — including bookmarks, browsing history, shortcuts, preferences, workspace settings, and session data — is stored exclusively on your local device.</p>
+          <ul class="policy-ul">
+            <li>This data never leaves your device unless you explicitly choose to export it.</li>
+            <li>We do not have access to your locally stored data at any time.</li>
+            <li>Uninstalling NetGlide will remove all associated local data from your machine.</li>
+            <li>You can clear your data at any time from within the browser's settings panel.</li>
+          </ul>
+          <p class="policy-p">We also do not use cookies for tracking in the NetGlide browser application itself. Any cookies you encounter are from websites you visit, and NetGlide gives you full control to manage, block, or auto-delete them.</p>
+        </div>
+
+        <!-- Section 5: Auto-Update -->
+        <div id="auto-update" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">05</div>
+            <h2>Auto-Update Feature</h2>
+          </div>
+          <p class="policy-p">NetGlide includes an automatic update checker to ensure you are always running the latest, safest version of the browser. When this feature runs:</p>
+          <ul class="policy-ul">
+            <li>Your current NetGlide version number is checked against the latest release on our GitHub repository.</li>
+            <li>No personal data, IP addresses, or identifiers are sent during this check.</li>
+            <li>The check is performed over a secure HTTPS connection.</li>
+            <li>You will be notified via the browser interface if an update is available.</li>
+          </ul>
+          <div class="highlight-box">
+            <span class="hb-icon">⚙️</span>
+            <p>You can disable auto-update checks in the NetGlide settings. We recommend keeping updates enabled to benefit from the latest security patches.</p>
+          </div>
+        </div>
+
+        <!-- Section 6: Children's Privacy -->
+        <div id="children" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">06</div>
+            <h2>Children's Privacy</h2>
+          </div>
+          <p class="policy-p">NetGlide is intended for general use and is suitable for users of all ages. However, we do not knowingly collect personal information from children under the age of 13 (or the applicable age of digital consent in your jurisdiction).</p>
+          <p class="policy-p">If you are a parent or guardian and believe your child has provided us with personal information (e.g., through our contact form), please contact us immediately at the address below. We will promptly delete any such data upon verification.</p>
+          <p class="policy-p">Since NetGlide does not require account creation or any personal data to operate, the risk of inadvertent collection from minors is inherently minimal.</p>
+        </div>
+
+        <!-- Section 7: Third-Party Integration -->
+        <div id="third-party" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">07</div>
+            <h2>Third-Party Integration &amp; External Links</h2>
+          </div>
+          <p class="policy-p">NetGlide may include integrations with or links to third-party services for convenience. These include:</p>
+          <ul class="policy-ul">
+            <li><strong>GitHub</strong> — Used for update version checks and open-source source code hosting.</li>
+            <li><strong>Supabase</strong> — Used for storing contact form submissions on our marketing website only. Not used within the browser application.</li>
+            <li><strong>Google Fonts</strong> — Used on our website for typography. Google Fonts serves font files but does not receive personally identifiable data from NetGlide users.</li>
+          </ul>
+          <p class="policy-p">When you visit external websites through NetGlide, those sites are governed by their own privacy policies. We encourage you to review the privacy terms of any third-party service you use.</p>
+          <p class="policy-p">We do not sell, rent, trade, or share your personal information with third-party advertisers or data brokers — ever.</p>
+        </div>
+
+        <!-- Section 8: Security -->
+        <div id="security" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">08</div>
+            <h2>Security</h2>
+          </div>
+          <p class="policy-p">We take reasonable and appropriate measures to protect the limited data we do handle. Our security practices include:</p>
+          <ul class="policy-ul">
+            <li>All external communications (including update checks and contact form submissions) use HTTPS/TLS encryption.</li>
+            <li>Contact form data stored via Supabase is protected with row-level security policies and access controls.</li>
+            <li>We limit access to any collected data to only those team members who require it to provide support.</li>
+            <li>We do not store payment information — we currently do not process any purchases through NetGlide.</li>
+          </ul>
+          <p class="policy-p">While we strive to use commercially acceptable means to protect your data, no method of transmission over the Internet is 100% secure. We cannot guarantee absolute security.</p>
+        </div>
+
+        <!-- Section 9: Cookies & Tracking -->
+        <div id="cookies" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">09</div>
+            <h2>Cookies &amp; Tracking Technologies</h2>
+          </div>
+          <p class="policy-p">Our <strong>marketing website</strong> (netglide.com) may use limited, non-tracking cookies for functionality — such as remembering your theme preference or managing session state.</p>
+          <p class="policy-p">The <strong>NetGlide browser application</strong> itself does not set any first-party tracking cookies. Cookies from websites you browse are fully within your control via NetGlide's built-in cookie management tools.</p>
+          <ul class="policy-ul">
+            <li>You can block all third-party cookies from NetGlide Settings → Privacy → Cookies.</li>
+            <li>You can enable automatic cookie deletion on tab close or browser exit.</li>
+            <li>You can whitelist cookies from trusted sites you want to stay logged in to.</li>
+          </ul>
+          <p class="policy-p">We do not use advertising networks, behavioural tracking pixels, or cross-site tracking technologies on our website or in our browser.</p>
+        </div>
+
+        <!-- Section 10: Your Rights -->
+        <div id="your-rights" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">10</div>
+            <h2>Your Rights</h2>
+          </div>
+          <p class="policy-p">Depending on your jurisdiction, you may have rights regarding your personal data. Since we collect minimal data, most of these rights are automatically satisfied by design. However, we acknowledge the following rights:</p>
+          <ul class="policy-ul">
+            <li><strong>Right to Access:</strong> You can request a copy of any personal data we hold about you (e.g., contact form submissions).</li>
+            <li><strong>Right to Erasure:</strong> You can request deletion of any personal data we hold about you.</li>
+            <li><strong>Right to Correction:</strong> You can request that any inaccurate data be corrected.</li>
+            <li><strong>Right to Object:</strong> You can object to any use of your data that you did not consent to.</li>
+            <li><strong>Right to Data Portability:</strong> We can provide your data in a commonly used, machine-readable format upon request.</li>
+          </ul>
+          <p class="policy-p">To exercise any of these rights, please contact us via email. We will respond within 30 days of your request.</p>
+        </div>
+
+        <!-- Section 11: Policy Changes -->
+        <div id="changes" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">11</div>
+            <h2>Policy Changes</h2>
+          </div>
+          <p class="policy-p">We may update this Privacy Policy from time to time as NetGlide evolves. When we make significant changes, we will:</p>
+          <ul class="policy-ul">
+            <li>Update the "Last Updated" date at the top of this page.</li>
+            <li>Display a notice within the NetGlide browser on first launch after the change (for material updates).</li>
+            <li>Announce significant changes on our GitHub repository.</li>
+          </ul>
+          <p class="policy-p">We encourage you to review this Privacy Policy periodically. Your continued use of NetGlide after any changes signifies your acceptance of the updated terms.</p>
+        </div>
+
+        <!-- Section 12: Contact -->
+        <div id="contact" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">12</div>
+            <h2>Contact Us</h2>
+          </div>
+          <p class="policy-p">If you have any questions, concerns, or requests regarding this Privacy Policy or how NetGlide handles data, please get in touch with us:</p>
+          <div class="contact-box">
+            <span class="cb-icon">📧</span>
+            <h3>NetGlide Privacy Team</h3>
+            <p>We typically respond within 48 hours. Your privacy matters to us.</p>
+            <a href="mailto:contact.netglide@gmail.com">contact.netglide@gmail.com</a>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <footer class="page-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="image/logo.webp" alt="NetGlide Logo" class="footer-logo">
+        </div>
+        <p class="footer-tagline">Experience the web without the noise. Fast, private, and student-built.</p>
+        <div class="footer-social">
+          <a href="https://github.com/netglide" class="social-btn" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Browser</h4>
+        <ul class="footer-col-links">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#showcase">Showcase</a></li>
+          <li><a href="index.html#install">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Support</h4>
+        <ul class="footer-col-links">
+          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="https://github.com/netglide/issues">Report a Bug</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Legal</h4>
+        <ul class="footer-col-links">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 NetGlide. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-of-use.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    // Scroll progress
+    const bar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      bar.style.transform = `scaleX(${pct})`;
+    }, { passive: true });
+
+    // Nav scroll class
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Particles
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
+    resize(); window.addEventListener('resize', resize);
+    class P {
+      constructor() { this.reset(true) }
+      reset(init) {
+        this.x = Math.random() * canvas.width;
+        this.y = init ? Math.random() * canvas.height : canvas.height + 10;
+        this.r = Math.random() * 1.4 + 0.3;
+        this.vx = (Math.random() - .5) * .14;
+        this.vy = -Math.random() * .45 - .08;
+        this.a = Math.random() * .45 + .08;
+        this.life = Math.random() * 220 + 100;
+        this.age = 0;
+        this.hue = [260, 190, 300, 220][Math.floor(Math.random() * 4)];
+      }
+      tick() { this.x += this.vx; this.y += this.vy; this.age++; if (this.age > this.life || this.y < -10) this.reset() }
+      draw() {
+        const f = Math.min(1, Math.min(this.age / 40, (this.life - this.age) / 40));
+        ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue},80%,72%,${this.a * f})`; ctx.fill();
+      }
+    }
+    const pts = [];
+    for (let i = 0; i < 120; i++) pts.push(new P());
+    function anim() { ctx.clearRect(0, 0, canvas.width, canvas.height); pts.forEach(p => { p.tick(); p.draw() }); requestAnimationFrame(anim) }
+    anim();
+
+    // Mobile menu
+    (function () {
+      const btn = document.getElementById('menuBtn');
+      const overlay = document.getElementById('mobileNavOverlay');
+      const backdrop = document.getElementById('mobileNavBackdrop');
+      if (!btn || !overlay) return;
+      let isOpen = false;
+      const openMenu = () => { isOpen = true; overlay.classList.add('open'); btn.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; };
+      const closeMenu = () => { isOpen = false; overlay.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+      btn.addEventListener('click', () => isOpen ? closeMenu() : openMenu());
+      backdrop.addEventListener('click', closeMenu);
+      overlay.querySelectorAll('.mobile-nav-link, .btn-primary').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) closeMenu(); });
+    })();
+
+    // Active TOC highlight on scroll
+    const sections = document.querySelectorAll('.policy-section');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 120) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(a => {
+        a.style.background = '';
+        a.style.color = '';
+        if (current && a.getAttribute('href') === `#${current}`) {
+          a.style.background = 'rgba(124,92,252,0.12)';
+          a.style.color = '#c4b5fd';
+        }
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>

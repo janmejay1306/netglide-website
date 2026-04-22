@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use – NetGlide</title>
+  <meta name="description" content="NetGlide's Terms of Use outline the rules and conditions for using our browser and website. Please read before using our services.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Chakra+Petch:wght@600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    :root {
+      --c-bg: #05030d;
+      --c-indigo: #1a0a3d;
+      --c-neon: #7c5cfc;
+      --c-pink: #e040fb;
+      --c-cyan: #22d3ee;
+      --c-text: #e8e0ff;
+      --c-muted: #8070b0;
+      --glass-bg: rgba(255,255,255,0.035);
+      --glass-border: rgba(255,255,255,0.09);
+      --radius: 20px;
+      --ff-head: 'Syne', sans-serif;
+      --ff-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 6px }
+    ::-webkit-scrollbar-track { background: rgba(5,3,13,0.95) }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#7c5cfc,#22d3ee,#e040fb); border-radius:999px; box-shadow:0 0 8px rgba(124,92,252,0.6) }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg,#a78bfa,#22d3ee); box-shadow:0 0 14px rgba(124,92,252,0.9) }
+    * { scrollbar-width:thin; scrollbar-color:#7c5cfc #05030d }
+
+    body { font-family:var(--ff-body); background:var(--c-bg); color:var(--c-text); width: 100%; position: relative; word-wrap: break-word; }
+    a, button { cursor:pointer }
+
+    /* Background */
+    .bg-fixed { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden }
+    .bg-orb { position:absolute; border-radius:50%; filter:blur(80px); animation:orbDrift 20s ease-in-out infinite }
+    .orb1 { width:700px; height:700px; left:-200px; top:-200px; background:radial-gradient(circle,rgba(45,16,96,0.7),transparent 70%); animation-delay:0s }
+    .orb2 { width:500px; height:500px; right:-100px; top:30%; background:radial-gradient(circle,rgba(11,26,85,0.6),transparent 70%); animation-delay:-7s }
+    .orb3 { width:600px; height:600px; left:30%; bottom:-200px; background:radial-gradient(circle,rgba(124,92,252,0.08),transparent 70%); animation-delay:-14s }
+    #particles-canvas { position:fixed; inset:0; pointer-events:none; z-index:1 }
+
+    /* Scroll progress */
+    .scroll-progress-bar { position:fixed; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#7c5cfc,#22d3ee,#e040fb); transform:scaleX(0); transform-origin:left; z-index:9999; transition:transform 0.1s }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; height:65px; padding:0 2.5rem; display:flex; align-items:center; justify-content:space-between; background:rgba(5,3,13,0.1); backdrop-filter:blur(24px) saturate(1.8); border-bottom:1px solid rgba(255,255,255,0.05); transition:all 0.4s ease }
+    nav.scrolled { background:rgba(5,3,13,0.35); border-bottom-color:rgba(124,92,252,0.25); box-shadow:0 10px 30px rgba(0,0,0,0.3) }
+    .nav-logo { width:140px; height:auto; object-fit:contain; display:block; transform:scale(1.8); transform-origin:left center; margin-top:9px }
+    .nav-links { display:flex; gap:2.5rem; list-style:none; position:absolute; left:calc(50% + 15px); top:50%; transform:translate(-50%,-50%) }
+    .nav-links a { color:var(--c-muted); text-decoration:none; font-size:1.02rem; font-weight:500; letter-spacing:0.03em; transition:color 0.2s; position:relative }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--c-neon); transform:scaleX(0); transition:transform 0.25s }
+    .nav-links a:hover { color:var(--c-text) }
+    .nav-links a:hover::after { transform:scaleX(1) }
+    .nav-cta { background:linear-gradient(90deg,#7c5cfc 0%,#0284c7 50%,#5b3fe8 100%); background-size:200% 200%; color:#fff; border:none; padding:0.65rem 1.6rem; border-radius:999px; font-family:var(--ff-head); font-size:1rem; font-weight:700; cursor:pointer; box-shadow:0 0 24px rgba(124,92,252,0.45); transition:all 0.3s cubic-bezier(.22,.68,0,1.2); text-decoration:none; display:inline-block }
+    .nav-cta:hover { transform:scale(1.07); box-shadow:0 0 35px rgba(124,92,252,0.5) }
+
+    /* Mobile menu */
+    .mobile-menu-btn { display:none; width:44px; height:44px; border-radius:12px; background:rgba(124,92,252,0.1); border:1px solid rgba(124,92,252,0.25); align-items:center; justify-content:center; cursor:pointer; flex-direction:column; gap:5px; padding:0; transition:background 0.3s,border-color 0.3s; flex-shrink:0; z-index:300; position:relative }
+    .mobile-menu-btn:hover { background:rgba(124,92,252,0.2); border-color:rgba(124,92,252,0.5) }
+    .menu-bar { display:block; width:20px; height:2px; background:#a78bfa; border-radius:4px; transition:transform 0.4s cubic-bezier(.22,.68,0,1.2),opacity 0.3s ease,width 0.3s ease; transform-origin:center }
+    .mobile-menu-btn.open .menu-bar:nth-child(1) { transform:translateY(7px) rotate(45deg) }
+    .mobile-menu-btn.open .menu-bar:nth-child(2) { opacity:0; transform:translateX(8px) }
+    .mobile-menu-btn.open .menu-bar:nth-child(3) { transform:translateY(-7px) rotate(-45deg) }
+    .mobile-nav-overlay { display:none; position:fixed; inset:0; z-index:190; pointer-events:none; overflow:hidden; }
+    .mobile-nav-backdrop { position:absolute; inset:0; background:rgba(5,3,13,0.7); backdrop-filter:blur(8px); opacity:0; transition:opacity 0.4s ease }
+    .mobile-nav-panel { position:absolute; top:0; right:0; width:min(320px,calc(100vw - 1rem)); max-width:100vw; height:100%; background:linear-gradient(160deg,#0e0820 0%,#07050f 60%); border-left:1px solid rgba(124,92,252,0.2); box-shadow:-20px 0 60px rgba(0,0,0,0.6),-2px 0 30px rgba(124,92,252,0.08); transform:translateX(100%); transition:transform 0.5s cubic-bezier(.22,.68,0,1.2); display:flex; flex-direction:column; padding:90px 1.2rem 2.5rem; overflow-y:auto; overflow-x:hidden }
+    .mobile-nav-overlay.open { pointer-events:all }
+    .mobile-nav-overlay.open .mobile-nav-backdrop { opacity:1 }
+    .mobile-nav-overlay.open .mobile-nav-panel { transform:translateX(0) }
+    .mobile-nav-links { list-style:none; display:flex; flex-direction:column; gap:0.3rem; margin-bottom:2rem }
+    .mobile-nav-links li { opacity:0; transform:translateX(30px); transition:opacity 0.4s ease,transform 0.4s cubic-bezier(.22,.68,0,1.2) }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(1) { opacity:1; transform:translateX(0); transition-delay:0.15s }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(2) { opacity:1; transform:translateX(0); transition-delay:0.22s }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(3) { opacity:1; transform:translateX(0); transition-delay:0.29s }
+    .mobile-nav-overlay.open .mobile-nav-links li:nth-child(4) { opacity:1; transform:translateX(0); transition-delay:0.36s }
+    .mobile-nav-links a { display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem; border-radius:14px; text-decoration:none; color:var(--c-muted); font-size:1.1rem; font-weight:600; font-family:var(--ff-head); letter-spacing:0.02em; transition:background 0.25s,color 0.25s,transform 0.25s; border:1px solid transparent }
+    .mobile-nav-links a:hover { background:rgba(124,92,252,0.1); color:var(--c-text); border-color:rgba(124,92,252,0.2); transform:translateX(4px) }
+    .mobile-nav-link-icon { font-size:1.2rem; flex-shrink:0 }
+    .mobile-nav-divider { height:1px; background:rgba(255,255,255,0.06); margin-bottom:1.8rem }
+    .mobile-nav-cta { margin-bottom:1.5rem }
+    .mobile-nav-footer { margin-top:auto; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.06) }
+    .mobile-nav-footer p { font-size:0.78rem; color:rgba(144,128,192,0.45); text-align:center }
+
+    /* MAIN LAYOUT */
+    .page-wrapper { max-width:1100px; margin:0 auto; padding:0 2.5rem; position:relative; z-index:2 }
+    .policy-layout { display:grid; grid-template-columns:260px 1fr; gap:4rem; align-items:start; padding-top:40px; padding-bottom:80px }
+
+    /* PAGE HERO */
+    .page-hero { position:relative; z-index:2; padding:140px 0 60px; text-align:center }
+    .page-hero-inner { max-width:700px; margin:0 auto; padding:0 2rem }
+    .page-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(124,92,252,0.1); border:1px solid rgba(124,92,252,0.28); padding:0.45rem 1.1rem; border-radius:999px; font-size:0.82rem; font-weight:500; color:#a78bfa; margin-bottom:1.4rem }
+    .badge-dot { width:6px; height:6px; background:#a78bfa; border-radius:50%; animation:pulse 2s infinite }
+    .page-hero h1 { font-family:var(--ff-head); font-size:clamp(2.4rem,4.5vw,3.6rem); font-weight:700; letter-spacing:-0.02em; line-height:1.1; margin-bottom:1rem }
+    .page-hero .hero-sub { color:var(--c-muted); font-size:1.05rem; line-height:1.7; max-width:520px; margin:0 auto 1.6rem }
+    .effective-date { display:inline-flex; flex-wrap:wrap; justify-content:center; text-align:center; max-width:100%; align-items:center; gap:0.5rem; font-size:0.82rem; color:rgba(144,128,192,0.6); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:0.4rem 1rem; border-radius:999px }
+
+    /* Gradient text */
+    .gradient-text { background:linear-gradient(135deg,#a78bfa 0%,#22d3ee 50%,#e040fb 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-size:200% 200%; animation:gradientShift 5s ease infinite }
+
+    /* TABLE OF CONTENTS */
+    .toc-sidebar { position:sticky; top:90px; align-self:start; z-index:10 }
+    .toc-card { background:var(--glass-bg); border:1px solid var(--glass-border); backdrop-filter:blur(20px) saturate(1.5); border-radius:var(--radius); padding:1.8rem }
+    .toc-title { font-family:var(--ff-head); font-size:0.75rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#7c5cfc; margin-bottom:1.2rem; display:flex; align-items:center; gap:0.5rem }
+    .toc-list { list-style:none; display:flex; flex-direction:column; gap:0.2rem }
+    .toc-list a { display:flex; align-items:center; gap:0.7rem; padding:0.55rem 0.8rem; border-radius:10px; text-decoration:none; color:var(--c-muted); font-size:0.875rem; font-weight:500; transition:all 0.25s; border:1px solid transparent }
+    .toc-list a:hover { background:rgba(124,92,252,0.1); color:var(--c-text); border-color:rgba(124,92,252,0.2); padding-left:1.1rem }
+    .toc-num { font-size:0.72rem; color:#7c5cfc; font-weight:700; min-width:18px }
+    .toc-divider { height:1px; background:rgba(255,255,255,0.06); margin:1rem 0 }
+    .toc-quick { font-size:0.78rem; color:rgba(144,128,192,0.5); text-align:center; padding-top:0.5rem }
+
+    /* POLICY CONTENT */
+    .policy-content { min-width:0 }
+    .policy-section { margin-bottom:4rem; scroll-margin-top:90px }
+    .policy-section-header { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.06) }
+    .section-num { width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,rgba(124,92,252,0.18),rgba(34,211,238,0.08)); border:1px solid rgba(124,92,252,0.35); display:flex; align-items:center; justify-content:center; font-family:var(--ff-body); font-size:1rem; font-weight:700; color:#a78bfa; flex-shrink:0 }
+    .policy-section h2 { font-family:var(--ff-head); font-size:1.3rem; font-weight:700; letter-spacing:-0.01em; color:var(--c-text) }
+    .policy-p { color:var(--c-muted); line-height:1.8; font-size:0.975rem; margin-bottom:1rem }
+    .policy-p:last-child { margin-bottom:0 }
+    .policy-ul { list-style:none; margin:0.8rem 0 1rem; display:flex; flex-direction:column; gap:0.5rem }
+    .policy-ul li { display:flex; align-items:flex-start; gap:0.75rem; color:var(--c-muted); font-size:0.95rem; line-height:1.7 }
+    .policy-ul li::before { content:''; width:6px; height:6px; border-radius:50%; background:linear-gradient(135deg,#7c5cfc,#22d3ee); flex-shrink:0; margin-top:0.6rem }
+    .policy-ul li strong { color:rgba(200,190,240,0.9) }
+
+    .highlight-box { background:rgba(124,92,252,0.06); border:1px solid rgba(124,92,252,0.2); border-radius:14px; padding:1.4rem 1.6rem; margin:1.2rem 0 }
+    .highlight-box .hb-icon { font-size:1.4rem; margin-bottom:0.6rem; display:block }
+    .highlight-box p { color:rgba(180,170,220,0.85); font-size:0.92rem; line-height:1.7; margin:0 }
+    .highlight-box strong { color:#c4b5fd }
+
+    /* Restriction grid */
+    .restriction-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.2rem 0 }
+    .restriction-card { background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:1.1rem 1.3rem; transition:all 0.3s }
+    .restriction-card:hover { background:rgba(200,50,50,0.06); border-color:rgba(220,80,80,0.2) }
+    .rc-icon { font-size:1.1rem; margin-bottom:0.4rem }
+    .rc-title { font-size:0.84rem; font-weight:700; color:var(--c-text); margin-bottom:0.2rem }
+    .rc-desc { font-size:0.8rem; color:var(--c-muted); line-height:1.5 }
+
+    /* Allowed grid */
+    .allowed-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.2rem 0 }
+    .allowed-card { background:rgba(34,211,238,0.04); border:1px solid rgba(34,211,238,0.12); border-radius:14px; padding:1.1rem 1.3rem; transition:all 0.3s }
+    .allowed-card:hover { background:rgba(34,211,238,0.08); border-color:rgba(34,211,238,0.25) }
+    .ac-icon { font-size:1.1rem; margin-bottom:0.4rem }
+    .ac-title { font-size:0.84rem; font-weight:700; color:var(--c-text); margin-bottom:0.2rem }
+    .ac-desc { font-size:0.8rem; color:var(--c-muted); line-height:1.5 }
+
+    .warn-box { background:rgba(224,64,251,0.05); border:1px solid rgba(224,64,251,0.18); border-radius:14px; padding:1.4rem 1.6rem; margin:1.2rem 0 }
+    .warn-box .hb-icon { font-size:1.4rem; margin-bottom:0.6rem; display:block }
+    .warn-box p { color:rgba(200,170,220,0.85); font-size:0.92rem; line-height:1.7; margin:0 }
+    .warn-box strong { color:#e040fb }
+
+    .contact-box { background:rgba(34,211,238,0.05); border:1px solid rgba(34,211,238,0.15); border-radius:16px; padding:1.6rem; margin-top:1.2rem; text-align:center }
+    .contact-box .cb-icon { font-size:1.8rem; display:block; margin-bottom:0.7rem }
+    .contact-box h3 { font-family:var(--ff-head); font-size:1.05rem; margin-bottom:0.5rem }
+    .contact-box p { color:var(--c-muted); font-size:0.9rem; margin-bottom:1rem }
+    .contact-box a { color:#22d3ee; text-decoration:none; font-weight:600; transition:color 0.2s; word-break: break-all; }
+    .contact-box a:hover { color:#a78bfa }
+
+    /* Intro agreement banner */
+    .agreement-banner { background:linear-gradient(135deg,rgba(124,92,252,0.12),rgba(34,211,238,0.06)); border:1px solid rgba(124,92,252,0.25); border-radius:16px; padding:1.6rem 1.8rem; margin-bottom:3.5rem; display:flex; align-items:flex-start; gap:1.2rem }
+    .agreement-banner-icon { font-size:1.8rem; flex-shrink:0; margin-top:0.1rem }
+    .agreement-banner h3 { font-family:var(--ff-head); font-size:1rem; margin-bottom:0.5rem; color:var(--c-text) }
+    .agreement-banner p { color:var(--c-muted); font-size:0.9rem; line-height:1.6 }
+
+    /* FOOTER */
+    .page-footer { border-top:1px solid rgba(255,255,255,0.06); padding:3rem 2.5rem 2rem; position:relative; z-index:2 }
+    .footer-inner { max-width:1100px; margin:0 auto }
+    .footer-grid { display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:2.5rem; margin-bottom:2rem }
+    .footer-brand .footer-logo-wrap { display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem }
+    .footer-logo { width:110px; height:auto; object-fit:contain; display:block; transform:scale(2.2); transform-origin:left center; margin-bottom:0.4rem }
+    .footer-logo-wrap { margin-bottom:1.2rem }
+    .footer-tagline { color:var(--c-muted); font-size:0.88rem; line-height:1.6; max-width:240px; margin-bottom:1.2rem }
+    .footer-social { display:flex; gap:0.7rem }
+    .social-btn { width:36px; height:36px; border-radius:10px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:all 0.25s; color:var(--c-muted) }
+    .social-btn:hover { background:rgba(124,92,252,0.15); border-color:rgba(124,92,252,0.35); color:var(--c-text); transform:translateY(-2px) }
+    .footer-col-title { font-family:var(--ff-head); font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(167,139,250,0.7); margin-bottom:1rem }
+    .footer-col-links { list-style:none; display:flex; flex-direction:column; gap:0.5rem }
+    .footer-col-links a { color:var(--c-muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s }
+    .footer-col-links a:hover { color:var(--c-text) }
+    .footer-bottom { padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem }
+    .footer-copy { color:rgba(144,128,192,0.45); font-size:0.82rem }
+    .footer-legal { display:flex; gap:1.5rem }
+    .footer-legal a { color:rgba(144,128,192,0.5); text-decoration:none; font-size:0.8rem; transition:color 0.2s }
+    .footer-legal a:hover { color:var(--c-muted) }
+    .footer-legal a.active { color:#7c5cfc }
+
+    /* Divider */
+    .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(124,92,252,0.18),rgba(34,211,238,0.1),transparent); margin:0; position:relative; z-index:2 }
+
+    /* Keyframes */
+    @keyframes orbDrift { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,20px) scale(1.05)} 66%{transform:translate(-20px,10px) scale(0.97)} }
+    @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+    /* Mobile responsive */
+    @media (max-width:960px) {
+      .policy-layout { grid-template-columns:1fr; gap:2.5rem; padding-top:20px }
+      .toc-sidebar { position:static; margin-bottom:1rem }
+      .toc-card { padding:1.4rem }
+      .toc-list { display:grid; grid-template-columns:1fr 1fr; gap:0.4rem }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:2rem }
+      .nav-links { display:none }
+      .nav-cta { display:none }
+      .mobile-menu-btn { display:flex }
+      .mobile-nav-overlay { display:block }
+    }
+    @media (max-width:600px) {
+      nav { padding: 0 1.2rem; }
+      .page-footer { padding: 2rem 1.2rem 1.5rem; }
+      .page-wrapper { padding:0 1.2rem }
+      .page-hero { padding: 110px 0 40px }
+      .page-hero h1 { font-size: clamp(2rem, 8vw, 2.4rem) }
+      .policy-layout { gap: 2rem; padding-bottom: 50px }
+      .restriction-grid, .allowed-grid { grid-template-columns:1fr }
+      .footer-grid { grid-template-columns:1fr }
+      .footer-bottom { flex-direction:column; text-align:center }
+      .agreement-banner { flex-direction:column }
+      
+      /* Mobile TOC - Scrollable List */
+      .toc-list { 
+        display:flex; 
+        flex-direction:column; 
+        max-height: 280px; 
+        overflow-y: auto; 
+        padding-right: 0.8rem; 
+        gap: 0.3rem;
+      }
+      .toc-list::-webkit-scrollbar { width: 4px }
+      .toc-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); border-radius: 4px }
+      .toc-list::-webkit-scrollbar-thumb { background: rgba(124,92,252,0.4); border-radius: 4px }
+    }
+    @media (min-width:961px) {
+      .mobile-menu-btn { display:none !important }
+      .mobile-nav-overlay { display:none !important }
+      .nav-links { display:flex }
+      .nav-cta { display:inline-block }
+    }
+    a, button, .toc-list a, .allowed-card, .restriction-card, .mobile-nav-links a, .nav-cta, .mobile-menu-btn {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <?php include 'header.php'; ?>
+
+  <!-- Page Hero -->
+  <div class="page-hero" style="position:relative;z-index:2">
+    <div class="page-hero-inner">
+      <div class="page-badge"><span class="badge-dot"></span>Legal &amp; Transparency</div>
+      <h1>Terms of <span class="gradient-text">Use</span></h1>
+      <p class="hero-sub">By using NetGlide, you agree to these terms. They're written to be fair, clear, and respectful of your rights as a user.</p>
+      <div class="effective-date">📅 Effective Date: March 31, 2026</div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="policy-layout">
+
+      <!-- TOC Sidebar -->
+      <aside class="toc-sidebar">
+        <div class="toc-card">
+          <div class="toc-title"><span>📋</span> On This Page</div>
+          <ul class="toc-list">
+            <li><a href="#agreement"><span class="toc-num">01</span> Agreement</a></li>
+            <li><a href="#license"><span class="toc-num">02</span> License</a></li>
+            <li><a href="#permitted"><span class="toc-num">03</span> Permitted Use</a></li>
+            <li><a href="#restrictions"><span class="toc-num">04</span> Restrictions</a></li>
+            <li><a href="#account"><span class="toc-num">05</span> No Account Required</a></li>
+            <li><a href="#content"><span class="toc-num">06</span> Content Ownership</a></li>
+            <li><a href="#external"><span class="toc-num">07</span> External Links</a></li>
+            <li><a href="#availability"><span class="toc-num">08</span> Availability</a></li>
+            <li><a href="#warranty"><span class="toc-num">09</span> No Warranty</a></li>
+            <li><a href="#liability"><span class="toc-num">10</span> Liability</a></li>
+            <li><a href="#termination"><span class="toc-num">11</span> Termination</a></li>
+            <li><a href="#governing"><span class="toc-num">12</span> Governing Law</a></li>
+            <li><a href="#changes"><span class="toc-num">13</span> Changes</a></li>
+            <li><a href="#contact"><span class="toc-num">14</span> Contact</a></li>
+          </ul>
+          <div class="toc-divider"></div>
+          <div class="toc-quick">⚖️ Fair, clear &amp; user-first</div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="policy-content">
+
+        <!-- Agreement Banner -->
+        <div class="agreement-banner">
+          <div class="agreement-banner-icon">⚠️</div>
+          <div>
+            <h3>Please Read Before Using NetGlide</h3>
+            <p>These Terms of Use ("Terms") govern your access to and use of the NetGlide browser application and the NetGlide website ("Service"). By downloading, installing, or using NetGlide, you confirm that you have read, understood, and agreed to these Terms. If you do not agree, please do not use the Service.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Agreement -->
+        <div id="agreement" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">01</div>
+            <h2>Agreement to Terms</h2>
+          </div>
+          <p class="policy-p">NetGlide is a free, open-source browser application developed by a team of student developers. These Terms of Use constitute a legally binding agreement between you ("User") and the NetGlide development team ("We," "Us," or "NetGlide").</p>
+          <p class="policy-p">These Terms apply to all visitors and users of the NetGlide browser application and our marketing website. By accessing or using the Service, you agree to be bound by these Terms and our <a href="privacy-policy.php" style="color:#a78bfa;text-decoration:none">Privacy Policy</a>.</p>
+          <p class="policy-p">We reserve the right to update these Terms at any time. Continued use of the Service following any changes constitutes acceptance of those changes.</p>
+        </div>
+
+        <!-- Section 2: License -->
+        <div id="license" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">02</div>
+            <h2>License Grant</h2>
+          </div>
+          <p class="policy-p">Subject to your compliance with these Terms, NetGlide grants you a personal, non-exclusive, non-transferable, revocable, limited license to:</p>
+          <ul class="policy-ul">
+            <li>Download and install the NetGlide browser application on one or more of your personal devices.</li>
+            <li>Use the application for personal, educational, or non-commercial purposes.</li>
+            <li>Access and browse our marketing website for informational purposes.</li>
+          </ul>
+          <div class="highlight-box">
+            <span class="hb-icon">📜</span>
+            <p><strong>Open Source:</strong> NetGlide's source code is available on GitHub under its respective open-source license. That license governs your rights to the source code. These Terms of Use govern your use of the compiled application and website.</p>
+          </div>
+        </div>
+
+        <!-- Section 3: Permitted Use -->
+        <div id="permitted" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">03</div>
+            <h2>Permitted Use</h2>
+          </div>
+          <p class="policy-p">NetGlide is designed for general web browsing. The following uses are expressly permitted:</p>
+          <div class="allowed-grid">
+            <div class="allowed-card">
+              <div class="ac-icon">🎓</div>
+              <div class="ac-title">Academic &amp; Educational Use</div>
+              <div class="ac-desc">Using NetGlide for research, studying, and educational purposes is fully encouraged.</div>
+            </div>
+            <div class="allowed-card">
+              <div class="ac-icon">💼</div>
+              <div class="ac-title">Personal Productivity</div>
+              <div class="ac-desc">Using NetGlide for personal productivity, note-taking, tab management, and everyday browsing.</div>
+            </div>
+            <div class="allowed-card">
+              <div class="ac-icon">🔧</div>
+              <div class="ac-title">Development &amp; Testing</div>
+              <div class="ac-desc">Developers may use NetGlide to test web applications and inspect website behavior.</div>
+            </div>
+            <div class="allowed-card">
+              <div class="ac-icon">🤝</div>
+              <div class="ac-title">Sharing &amp; Recommending</div>
+              <div class="ac-desc">You may freely share NetGlide's website link and recommend the browser to others.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Restrictions -->
+        <div id="restrictions" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">04</div>
+            <h2>Restrictions</h2>
+          </div>
+          <p class="policy-p">The following actions are strictly prohibited when using NetGlide or our website:</p>
+          <div class="restriction-grid">
+            <div class="restriction-card">
+              <div class="rc-icon">🚫</div>
+              <div class="rc-title">No Reverse Engineering</div>
+              <div class="rc-desc">You may not decompile, disassemble, or reverse engineer the binary application (the compiled open-source code is already available on GitHub).</div>
+            </div>
+            <div class="restriction-card">
+              <div class="rc-icon">💸</div>
+              <div class="rc-title">No Commercial Resale</div>
+              <div class="rc-desc">You may not sell, sublicense, or commercially redistribute NetGlide or charge others for access to it.</div>
+            </div>
+            <div class="restriction-card">
+              <div class="rc-icon">🔓</div>
+              <div class="rc-title">No Security Circumvention</div>
+              <div class="rc-desc">You may not attempt to bypass, hack, or circumvent any security measures in the browser or on our website.</div>
+            </div>
+            <div class="restriction-card">
+              <div class="rc-icon">🤖</div>
+              <div class="rc-title">No Automated Abuse</div>
+              <div class="rc-desc">You may not use automated tools (bots, scrapers) to abuse our services, overload servers, or harvest data from our website.</div>
+            </div>
+            <div class="restriction-card">
+              <div class="rc-icon">🎭</div>
+              <div class="rc-title">No Misrepresentation</div>
+              <div class="rc-desc">You may not claim to be affiliated with NetGlide or represent the project without explicit written permission from our team.</div>
+            </div>
+            <div class="restriction-card">
+              <div class="rc-icon">⚠️</div>
+              <div class="rc-title">No Illegal Use</div>
+              <div class="rc-desc">You may not use NetGlide to engage in any illegal activity, including accessing unauthorized systems or distributing malware.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: No Account Required -->
+        <div id="account" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">05</div>
+            <h2>No Account Required</h2>
+          </div>
+          <p class="policy-p">NetGlide does not require you to create an account or register to use the browser. All core features are available without providing any personal information.</p>
+          <p class="policy-p">If you choose to contact us via our website's contact form, you voluntarily provide your name and email address. You are responsible for ensuring that any information you submit to us is accurate and not misleading. Please refer to our <a href="privacy-policy.php" style="color:#a78bfa;text-decoration:none">Privacy Policy</a> for full details on how we handle this information.</p>
+        </div>
+
+        <!-- Section 6: Content Ownership -->
+        <div id="content" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">06</div>
+            <h2>Content Ownership &amp; Intellectual Property</h2>
+          </div>
+          <p class="policy-p">All content on the NetGlide website — including but not limited to text, graphics, logos, interface design, animations, and multimedia elements — is the intellectual property of the NetGlide development team and is protected by applicable copyright and trademark laws.</p>
+          <ul class="policy-ul">
+            <li>You may not reproduce, copy, distribute, or modify any website content without our written permission.</li>
+            <li>You may share links to our website freely without restriction.</li>
+            <li>Screenshots of the NetGlide interface for non-commercial, review, or educational purposes are permitted.</li>
+            <li>The NetGlide name and logo are trademarks of the NetGlide project and may not be used without permission.</li>
+          </ul>
+          <p class="policy-p">The NetGlide open-source code is licensed separately under its repository's license. Please consult the GitHub repository for specific source code licensing terms.</p>
+        </div>
+
+        <!-- Section 7: External Links -->
+        <div id="external" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">07</div>
+            <h2>External Links &amp; Third-Party Content</h2>
+          </div>
+          <p class="policy-p">NetGlide may display links to external websites as part of its default shortcuts or as recommendation features. These links are provided for convenience only.</p>
+          <ul class="policy-ul">
+            <li>We do not endorse, control, or take responsibility for the content of any external websites.</li>
+            <li>Accessing external sites through NetGlide is entirely at your own risk.</li>
+            <li>External sites have their own privacy policies and terms — we encourage you to review them.</li>
+          </ul>
+          <div class="warn-box">
+            <span class="hb-icon">⚠️</span>
+            <p><strong>Note:</strong> Default browser shortcuts (e.g., to YouTube, Wikipedia, GitHub) are provided as convenience links. These are not partnerships or endorsements by NetGlide.</p>
+          </div>
+        </div>
+
+        <!-- Section 8: Service Availability -->
+        <div id="availability" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">08</div>
+            <h2>Service Availability &amp; Updates</h2>
+          </div>
+          <p class="policy-p">We strive to keep NetGlide functional and up-to-date. However, we make no guarantee of continuous, uninterrupted availability:</p>
+          <ul class="policy-ul">
+            <li>We may release updates, patches, or new versions at any time without prior notice.</li>
+            <li>We may modify or discontinue features of the browser or website at our discretion.</li>
+            <li>Older versions of NetGlide may lose compatibility with certain website features as the web evolves.</li>
+            <li>NetGlide is provided as a free service; we are not liable for any downtime or service interruption.</li>
+          </ul>
+          <p class="policy-p">We recommend always using the latest version of NetGlide for the best security and performance.</p>
+        </div>
+
+        <!-- Section 9: No Warranty -->
+        <div id="warranty" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">09</div>
+            <h2>No Warranty</h2>
+          </div>
+          <p class="policy-p">NetGlide is provided <strong>"as is"</strong> and <strong>"as available"</strong> without any representation, warranty, or guarantee of any kind, whether express or implied.</p>
+          <ul class="policy-ul">
+            <li>We do not warrant that NetGlide will be error-free, uninterrupted, or meet your specific requirements.</li>
+            <li>We do not warrant that any defects will be corrected, or that the browser is free of viruses or other harmful components.</li>
+            <li>We do not guarantee that any specific website will load correctly in NetGlide, as web compatibility may vary.</li>
+          </ul>
+          <div class="highlight-box">
+            <span class="hb-icon">ℹ️</span>
+            <p>To the maximum extent permitted by applicable law, all implied warranties including merchantability, fitness for a particular purpose, and non-infringement are hereby excluded.</p>
+          </div>
+        </div>
+
+        <!-- Section 10: Liability -->
+        <div id="liability" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">10</div>
+            <h2>Limitation of Liability</h2>
+          </div>
+          <p class="policy-p">To the fullest extent permitted by law, NetGlide and its developers shall not be liable for any:</p>
+          <ul class="policy-ul">
+            <li>Indirect, incidental, special, consequential, or punitive damages.</li>
+            <li>Loss of data, loss of profits, or business interruption arising from use of the browser.</li>
+            <li>Damages resulting from any malicious or harmful content encountered through websites browsed with NetGlide.</li>
+            <li>System damage, data corruption, or security breaches caused by third-party extensions or plugins.</li>
+            <li>Actions taken by websites or services you access through NetGlide.</li>
+          </ul>
+          <p class="policy-p">You use NetGlide at your own risk. Our total aggregate liability, if any, shall not exceed the amount you paid us (which, as NetGlide is free, is zero dollars).</p>
+        </div>
+
+        <!-- Section 11: Termination -->
+        <div id="termination" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">11</div>
+            <h2>Termination</h2>
+          </div>
+          <p class="policy-p">You are free to stop using NetGlide at any time by simply uninstalling the application. No cancellation process or notification is required.</p>
+          <p class="policy-p">We reserve the right to terminate or restrict your access to our website or any associated services if you:</p>
+          <ul class="policy-ul">
+            <li>Violate any provision of these Terms of Use.</li>
+            <li>Engage in abusive, illegal, or disruptive behavior toward our platform or other users.</li>
+            <li>Attempt to compromise the security or integrity of our services.</li>
+          </ul>
+          <p class="policy-p">Provisions in these Terms that by their nature should survive termination (including intellectual property rights, limitations of liability, and indemnification) will remain in effect after termination.</p>
+        </div>
+
+        <!-- Section 12: Governing Law -->
+        <div id="governing" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">12</div>
+            <h2>Governing Law</h2>
+          </div>
+          <p class="policy-p">These Terms of Use shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles.</p>
+          <p class="policy-p">Any disputes arising from or relating to these Terms or your use of NetGlide shall be subject to the exclusive jurisdiction of the courts of India. By using NetGlide, you consent to this jurisdiction.</p>
+          <div class="highlight-box">
+            <span class="hb-icon">⚖️</span>
+            <p>We encourage you to contact us first to resolve any disputes informally before initiating formal legal proceedings. Most issues can be resolved quickly and amicably through open communication.</p>
+          </div>
+        </div>
+
+        <!-- Section 13: Changes to Terms -->
+        <div id="changes" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">13</div>
+            <h2>Changes to These Terms</h2>
+          </div>
+          <p class="policy-p">We may update these Terms of Use from time to time to reflect changes in our practices, the law, or our service offerings. When we make material changes:</p>
+          <ul class="policy-ul">
+            <li>The "Last Updated" date at the top of this page will be revised.</li>
+            <li>Significant updates will be announced on our GitHub repository.</li>
+            <li>For major changes, we may display a notice within NetGlide's interface on first launch after the update.</li>
+          </ul>
+          <p class="policy-p">Your continued use of NetGlide after any changes to these Terms constitutes your acceptance of the new Terms. If you disagree with the revised Terms, you should stop using NetGlide and uninstall the application.</p>
+        </div>
+
+        <!-- Section 14: Contact -->
+        <div id="contact" class="policy-section">
+          <div class="policy-section-header">
+            <div class="section-num">14</div>
+            <h2>Contact Us</h2>
+          </div>
+          <p class="policy-p">If you have any questions about these Terms of Use, want to report a violating use of NetGlide, or need assistance, please contact us:</p>
+          <div class="contact-box">
+            <span class="cb-icon">📧</span>
+            <h3>NetGlide Legal Team</h3>
+            <p>We aim to respond to all inquiries within 48–72 hours. Please include "Terms of Use" in your subject line.</p>
+            <a href="mailto:contact.netglide@gmail.com">contact.netglide@gmail.com</a>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <?php include 'footer.php'; ?>
+
+  <script>
+    // Scroll progress
+    const bar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      bar.style.transform = `scaleX(${pct})`;
+    }, { passive: true });
+
+    // Nav scroll class
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Particles
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
+    resize(); window.addEventListener('resize', resize);
+    class P {
+      constructor() { this.reset(true) }
+      reset(init) {
+        this.x = Math.random() * canvas.width;
+        this.y = init ? Math.random() * canvas.height : canvas.height + 10;
+        this.r = Math.random() * 1.4 + 0.3;
+        this.vx = (Math.random() - .5) * .14;
+        this.vy = -Math.random() * .45 - .08;
+        this.a = Math.random() * .45 + .08;
+        this.life = Math.random() * 220 + 100;
+        this.age = 0;
+        this.hue = [260, 190, 300, 220][Math.floor(Math.random() * 4)];
+      }
+      tick() { this.x += this.vx; this.y += this.vy; this.age++; if (this.age > this.life || this.y < -10) this.reset() }
+      draw() {
+        const f = Math.min(1, Math.min(this.age / 40, (this.life - this.age) / 40));
+        ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue},80%,72%,${this.a * f})`; ctx.fill();
+      }
+    }
+    const pts = [];
+    for (let i = 0; i < 120; i++) pts.push(new P());
+    function anim() { ctx.clearRect(0, 0, canvas.width, canvas.height); pts.forEach(p => { p.tick(); p.draw() }); requestAnimationFrame(anim) }
+    anim();
+
+    // Mobile menu
+    (function () {
+      const btn = document.getElementById('menuBtn');
+      const overlay = document.getElementById('mobileNavOverlay');
+      const backdrop = document.getElementById('mobileNavBackdrop');
+      if (!btn || !overlay) return;
+      let isOpen = false;
+      const openMenu = () => { isOpen = true; overlay.classList.add('open'); btn.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; };
+      const closeMenu = () => { isOpen = false; overlay.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+      btn.addEventListener('click', () => isOpen ? closeMenu() : openMenu());
+      backdrop.addEventListener('click', closeMenu);
+      overlay.querySelectorAll('.mobile-nav-link').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) closeMenu(); });
+    })();
+
+    // Active TOC highlight on scroll
+    const sections = document.querySelectorAll('.policy-section');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 120) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(a => {
+        a.style.background = '';
+        a.style.color = '';
+        if (current && a.getAttribute('href') === `#${current}`) {
+          a.style.background = 'rgba(124,92,252,0.12)';
+          a.style.color = '#c4b5fd';
+        }
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
