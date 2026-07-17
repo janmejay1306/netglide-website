@@ -3671,7 +3671,7 @@
         </h1>
         <p class="hero-sub">Fast. Focused. Built for students and creators who demand more from their browser.</p>
         <div class="hero-btns">
-          <a href="#install" class="btn-primary">Download NetGlide</a>
+          <a href="https://github.com/janmejay1306/NetGlide/releases" target="_blank" rel="noopener noreferrer" class="btn-primary">View Downloads</a>
           <a href="#features" class="btn-secondary">See Features</a>
         </div>
         <div class="trust-line">
@@ -4241,8 +4241,8 @@
         </div>
       </div>
       <div class="install-cta reveal">
-        <a href="#" class="btn-primary" style="font-size:1.1rem;padding:1.2rem 3rem;letter-spacing:-0.02em;">
-          Download NetGlide, Free Forever
+        <a href="https://github.com/janmejay1306/NetGlide/releases" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1.1rem;padding:1.2rem 3rem;letter-spacing:-0.02em;">
+          View NetGlide Downloads
         </a>
       </div>
     </div>
@@ -4395,8 +4395,8 @@
         <p style="max-width:480px;margin:1.2rem auto 0">Join students and creators who ditched the bloat. Free, forever.
         </p>
         <div class="cta-glow-wrap">
-          <a href="#" class="btn-primary" style="font-size:1.2rem;padding:1.3rem 3.2rem">
-            Download NetGlide Free
+          <a href="https://github.com/janmejay1306/NetGlide/releases" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:1.2rem;padding:1.3rem 3.2rem">
+            View Downloads
           </a>
         </div>
         <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(144,128,192,0.45)">No sign-up. No credit card. No
